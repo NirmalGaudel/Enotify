@@ -37,7 +37,6 @@ app.use((err, req, res, next) => {
   delete err.expose;
   res.status(status || 500).json(err);
 });
-
 // make connection to mongoDB server
 console.log("Connecting to mongoDB server ...");
 mongoose.connect(DB_URI, {
