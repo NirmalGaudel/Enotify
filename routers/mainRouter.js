@@ -12,7 +12,7 @@ mainRouter.get("/", (req, res, next) => {
 mainRouter.post("/hospitals/register", async (req, res, next) => {
   try {
     const result = await createHosital(req.body);
-    res.status.apply(200).json(result);
+    res.status(200).json(result);
   } catch (err) {
     next(createHttpError(406, err));
   }

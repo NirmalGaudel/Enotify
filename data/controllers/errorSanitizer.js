@@ -22,6 +22,6 @@ module.exports = (e) => {
     delete e.errors[key].reason;
   }
   delete e._message;
-  e.message = e.message.split(":")[0];
+  if (e.message && e.message.includes(":")) e.message = e.message.split(":")[0];
   return e;
 };
