@@ -29,5 +29,9 @@
   },
   "devDependencies": {
     "morgan": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NirmalGaudel/Enotify.git"
   }
 }
