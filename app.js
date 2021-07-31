@@ -30,7 +30,6 @@ app.use((req, res, next) => next(createHttpError(404)));
 
 // handle errors in the application
 app.use((err, req, res, next) => {
-  console.log(err);
   const status = err.status;
   delete err.status;
   delete err.statusCode;

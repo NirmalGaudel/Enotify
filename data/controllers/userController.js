@@ -1,19 +1,12 @@
 const userModel = require("../models/userModel");
+const errorSanitizer = require("./errorSanitizer");
 
 function createUser(payload) {
   return new Promise((resolve, reject) => {
     userModel
       .create(payload)
       .then((d) => resolve(d))
-      .catch((e) => {
-        if (e?.errors)
-          for (const errorPath in e.errors) {
-            delete e.errors[errorPath].properties;
-            delete e.errors[errorPath].reason;
-          }
-        delete e._message;
-        reject(e);
-      });
+      .catch((e) => reject(errorSanitizer(e)));
   });
 }
 
